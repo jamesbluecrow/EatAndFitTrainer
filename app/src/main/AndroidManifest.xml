@@ -19,6 +19,7 @@
     <activity android:name=".ui.configure.ConfigureWorkoutActivity"/>
     <activity android:name=".ui.workout.WorkoutActivity">
     </activity>
+    <activity android:name=".ui.congratulations.CongratulationsActivity"/>
   </application>
 
 </manifest>
