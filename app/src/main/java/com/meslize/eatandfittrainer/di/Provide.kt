@@ -1,9 +1,14 @@
 package com.meslize.eatandfittrainer.di
 
-import com.meslize.eatandfittrainer.ui.workouts.WorkoutsListViewModel
+import android.arch.lifecycle.ViewModelProviders
+import android.support.v4.app.FragmentActivity
+import com.meslize.eatandfittrainer.ui.configure.ConfigureWorkoutViewModel
+
 
 class Provide {
   companion object {
-    fun workoutsListViewModel() = WorkoutsListViewModel()
+    fun configureWorkoutViewModel(activity: FragmentActivity): ConfigureWorkoutViewModel {
+      return ViewModelProviders.of(activity).get(ConfigureWorkoutViewModel::class.java)
+    }
   }
 }

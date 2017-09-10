@@ -1,13 +1,13 @@
-package com.meslize.eatandfittrainer.ui
+package com.meslize.eatandfittrainer.ui.workout
 
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
 import com.meslize.eatandfittrainer.R
 
-class MainActivity : AppCompatActivity() {
+class WorkoutActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    setContentView(R.layout.activity_workout)
   }
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.meslize.eatandfittrainer.ui.workout.WorkoutActivity"
+    >
+
+  <!-- TODO: add a recycler view here to match the design -->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+
+    <!-- Start: First item -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+      <LinearLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical"
+          >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+          <ImageView
+              android:layout_width="60dp"
+              android:layout_height="60dp"
+              android:src="@drawable/pesa"
+              />
+
+          <LinearLayout
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="6dp"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:orientation="vertical"
+              >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exercise name"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LEVEL"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
+                />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+
+      <TextView
+          android:id="@+id/textView"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:text="00:35"
+          android:textColor="@android:color/black"
+          android:textSize="40sp"
+          />
+
+    </LinearLayout>
+    <!-- End: First item -->
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+
+    <include layout="@layout/layout_workout_exercise_item"/>
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="20dp"
+      android:background="@android:color/holo_green_dark"
+      android:orientation="horizontal"
+      >
+
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/ic_media_play"
+        android:padding="25dip"
+        />
+
+    <ImageButton
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/ic_media_pause"
+        android:padding="25dip"
+        />
+
+    <ImageButton
+        android:id="@+id/stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/ic_media_ff"
+        android:padding="25dip"
+        />
+  </LinearLayout>
+</RelativeLayout>
