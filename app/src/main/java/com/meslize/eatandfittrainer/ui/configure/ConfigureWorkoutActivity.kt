@@ -3,17 +3,19 @@ package com.meslize.eatandfittrainer.ui.configure
 import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
 import com.meslize.eatandfittrainer.R
 import com.meslize.eatandfittrainer.database.entity.Exercise
 import com.meslize.eatandfittrainer.di.Provide
 import com.meslize.eatandfittrainer.ui.BaseActivity
+import com.meslize.eatandfittrainer.ui.common.BaseRecyclerViewAdapter
 import com.meslize.eatandfittrainer.ui.workout.WorkoutActivity
 import kotlinx.android.synthetic.main.activity_configure_workout.*
+import kotlinx.android.synthetic.main.layout_configure_workout_item.view.*
 
 class ConfigureWorkoutActivity : BaseActivity() {
   private lateinit var viewModel: ConfigureWorkoutViewModel
@@ -21,6 +23,7 @@ class ConfigureWorkoutActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_configure_workout)
+    exercises_view.layoutManager = LinearLayoutManager(this)
 
     viewModel = Provide.configureWorkoutViewModel(this)
     lifecycle.addObserver(viewModel)
@@ -36,19 +39,22 @@ class ConfigureWorkoutActivity : BaseActivity() {
 }
 
 //TODO(david) Add section headers, icons...
-private class ExercisesAdapter(val items: List<Exercise>) : BaseAdapter() {
+private class ExercisesAdapter(items: List<Exercise>) : BaseRecyclerViewAdapter<Exercise, ExercisesAdapter.ViewHolder>(
+    items) {
 
-  override fun getView(position: Int, view: View?, parent: ViewGroup): View {
-    val view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_checked, parent,
-        false) as TextView
-    view.text = items[position].name
-
-    return view
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    holder.bind(items[position])
   }
 
-  override fun getItem(position: Int) = items[position]
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_configure_workout_item, parent, false)
+    return ViewHolder(view)
+  }
 
-  override fun getItemId(position: Int) = position.toLong()
 
-  override fun getCount() = items.size
+  class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun bind(message: Exercise) = with(itemView) {
+      name_view.text = message.name
+    }
+  }
 }
