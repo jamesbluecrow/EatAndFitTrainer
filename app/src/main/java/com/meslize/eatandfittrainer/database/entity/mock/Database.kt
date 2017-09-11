@@ -22,13 +22,10 @@ object Database {
     val equipment = Equipment(id = "1", name = "Equipment 1", description = "Equipment 1")
 
     val list = mutableListOf<Exercise>()
-    for (i in 0..9) {
+    for (i in 0..30) {
       list.add(Exercise(id = "$i", name = "Exercise $i", description = "Exercise $i description",
           equipments = arrayListOf(equipment, equipment, equipment), set = 3, repetitions = 15))
     }
-
-    list.add(Exercise(id = "Custom", name = "ADD CUSTOM", description = "ADD CUSTOM description",
-        equipments = arrayListOf(equipment, equipment, equipment), set = 3, repetitions = 15))
 
     return Single.just(list)
   }
