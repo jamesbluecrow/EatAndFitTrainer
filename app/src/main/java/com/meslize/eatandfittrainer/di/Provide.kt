@@ -7,8 +7,7 @@ import com.meslize.eatandfittrainer.ui.configure.ConfigureWorkoutViewModel
 
 class Provide {
   companion object {
-    fun configureWorkoutViewModel(activity: FragmentActivity): ConfigureWorkoutViewModel {
-      return ViewModelProviders.of(activity).get(ConfigureWorkoutViewModel::class.java)
-    }
+    fun configureWorkoutViewModel(activity: FragmentActivity): ConfigureWorkoutViewModel =
+        ViewModelProviders.of(activity).get(ConfigureWorkoutViewModel::class.java)
   }
 }
